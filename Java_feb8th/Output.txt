@@ -1,0 +1,19 @@
+Enter amount : 
+5000
+Enter withdraw amount:
+200
+Initial balance : 1000.5
+After deposit and withdrawl ::::::::: 
+Amount deposited : 5000.0withdraw amount : 200.0 Current balance : 5800.5
+Enter amount : 
+0
+Enter withdraw amount:
+200
+Invalid amount
+Please enter amount greater than zero .
+Enter amount : 
+3000
+Enter withdraw amount:
+15000
+Caution !! ....
+Please enter withdraw amount within ur balance range
