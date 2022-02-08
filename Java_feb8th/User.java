@@ -9,8 +9,15 @@ public class User {
         else if( withdraw >= balance ){
             throw new InsufficientBalanceException("Caution !! ...Trying to withdrawn more than your present balance");
         }
-        else{
+       else if (amount<=0.0f){
             throw new InvalidAmountException("Invalid amount");
+        }
+        else{
+            System.out.println("Initial balance : "+balance);
+            System.out.println("After deposit and withdrawl ::::::::: ");
+            System.out.println("Amount deposited : "+amount+"withdraw amount : "+withdraw+
+                    " Current balance : "+(balance+amount-withdraw));
+
         }
     }
 }
