@@ -42,5 +42,5 @@ public class DataInputOutputStream {
     }
 }
 //output
-Success.....
-5 10.05
+//Success.....
+//5 10.05
