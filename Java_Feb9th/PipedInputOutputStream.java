@@ -25,3 +25,6 @@ public class PipedInputOutputStream {
         }
     }
 }
+
+//output 
+//a@u8
