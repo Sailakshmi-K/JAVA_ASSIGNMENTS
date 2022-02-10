@@ -50,4 +50,25 @@ class passwdAuth
     }//end main
 }//end class
 
+/*
+C:\Users\Coditas\Desktop>javac passwdAuth.java
+
+C:\Users\Coditas\Desktop>java passwdAuth
+Error: Could not find or load main class passwdAuth
+
+C:\Users\Coditas\Desktop>javac passwdAuth.java
+
+C:\Users\Coditas\Desktop>java passwdAuth
+an error has occured.
+
+C:\Users\Coditas\Desktop>java passwdAuth PasswdAuth 3dTAqb.7
+Checking command-line password
+Password matches.
+Access granted!
+
+C:\Users\Coditas\Desktop>java passwdAuth FileNewPw 3dTAqb.7
+Checking command-line password
+Password matches.
+Access granted!
+
 
