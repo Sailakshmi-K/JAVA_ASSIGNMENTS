@@ -27,5 +27,6 @@ public class PrintWriterDemo {
 OUTPUT :::::
 
 Success.....
+It is mandatory to close the stream beacuse we need to release the resources allocated to system and to prevent accidental deletion of the stream data.
 
  */
