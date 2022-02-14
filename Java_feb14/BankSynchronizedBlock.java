@@ -83,7 +83,21 @@ public class BankSynchronizedBlock {
 
         w.start();
         d.start();
-
     }
-
 }
+
+
+/*
+OUTPUT::::::::::
+
+************* ACCOUNT BALANCE *************
+Account Current balance is::500
+***************** WITHDRAW ****************
+Withdrawn amount is::500
+SORRY!!! Insufficient balance ::500	waiting for deposit...
+**************** DEPOSIT ******************
+Deposited amount is::2000
+Deposit Completely...Account Balance::2500
+Withdraw Completed...Account Balance::2000
+
+*/
