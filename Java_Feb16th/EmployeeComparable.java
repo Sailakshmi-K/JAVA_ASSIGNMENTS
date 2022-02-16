@@ -26,18 +26,6 @@ class Employee1 implements Comparable<Employee1>{
 	}
 }
 
-class BySalary1 implements Comparable<Employee1>{
-
-	@Override
-	public int compareTo(Employee1 o) {
-		if(o.salary>15000)
-			return 1;
-		else
-		return 0;
-	}
-	
-}
-
 public class EmployeeComparable {
 
 	public static void main(String[] args) {
