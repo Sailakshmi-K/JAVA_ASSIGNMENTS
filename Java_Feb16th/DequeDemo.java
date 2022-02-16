@@ -54,7 +54,7 @@ public class DequeDemo {
 		
 		//contains()
 		
-		System.out.println("deq1 in deq or not : "+deq.contains(deq1));
+		System.out.println("100 in deq or not : "+deq.contains(100));
 		
 		
 		//descendingIterator()
@@ -111,7 +111,7 @@ public class DequeDemo {
 0	1	2	3	11	5	6	7	8	9	
 Size of deq : 10
 [2, 11, 5]
-deq1 in deq or not : false
+100 in deq or not : false
 Deque in reverse order :
 5	11	2	
 Head of deq using element() : 2
