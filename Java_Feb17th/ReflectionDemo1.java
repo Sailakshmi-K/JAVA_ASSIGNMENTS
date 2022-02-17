@@ -5,7 +5,10 @@ import java.lang.reflect.*;
 class Coditas{
 
     // field
-    String Domain;
+    protected String Domain;
+    private String location;
+    public String Trainer;
+    String Student;
 
     // constructors no-arg & args
     Coditas(){
@@ -26,7 +29,7 @@ class Coditas{
 }
 
 public class ReflectionDemo1 {
-    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException,SecurityException, IllegalAccessException, NoSuchFieldException {
 
         Coditas obj_coditas = new Coditas();
         Coditas obj_coditas1 = new Coditas("JAVA ELTP PROGRAM");
@@ -67,11 +70,40 @@ public class ReflectionDemo1 {
         m2.invoke(obj_coditas,"Sailakshmi");
 
         // Feilds
-        Field fields= obj.getField("Domain");
-        fields.set(obj_coditas,"PUNE ELTP CODITAS");
 
-        String f= (String) fields.get(obj_coditas);
-        System.out.println(f);
+        //public field
+        Field field1= obj.getField("Trainer");
+        field1.set(obj_coditas,"Aarti");
+
+        String f1=(String)field1.get(obj_coditas);
+        System.out.println("Public variable : "+f1);
+
+        // private filed
+        Field field2= obj.getDeclaredField("location");
+        field2.setAccessible(true);
+        field2.set(obj_coditas,"PUNE");
+
+        String f2= (String) field2.get(obj_coditas);
+        System.out.println("Private variable : "+f2);
+
+        // protected field
+
+        Field field3= obj.getDeclaredField("Domain");
+        field3.setAccessible(true);
+        field3.set(obj_coditas,"ELTP");
+
+        String f3= (String) field3.get(obj_coditas);
+        System.out.println("Protected variable : "+f3);
+
+        // Default field
+
+        Field field4= obj.getDeclaredField("Student");
+        field4.setAccessible(true);
+        field4.set(obj_coditas,"Sailakshmi");
+
+        String f4= (String) field4.get(obj_coditas);
+        System.out.println("Default variable : "+f4);
+
 
 
     }
@@ -85,17 +117,17 @@ Canonical name : Reflections.Coditas
 Simple name : Coditas
 super class name : class java.lang.Object
 Class modifier : 
-Constructor name : Reflections.Coditas , modifier :  , parameters count : 1
 Constructor name : Reflections.Coditas , modifier :  , parameters count : 0
+Constructor name : Reflections.Coditas , modifier :  , parameters count : 1
 Methods name : show ,paramenters : 1
 Methods name : show ,paramenters : 0
 Domain : JAVA ELTP PROGRAM
 Coditas Domain : Sailakshmi
-Exception in thread "main" java.lang.NoSuchFieldException: Domain
-	at java.lang.Class.getField(Class.java:1703)
-	at Reflections.ReflectionDemo1.main(ReflectionDemo1.java:70)
+Public variable : Aarti
+Private variable : PUNE
+Protected variable : ELTP
+Default variable : Sailakshmi
 
-Process finished with exit code 1
-
+Process finished with exit code 0
 
 */
