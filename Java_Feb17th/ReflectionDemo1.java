@@ -77,3 +77,25 @@ public class ReflectionDemo1 {
     }
 
 }
+/*
+
+No-arg coditas class
+Class name : Reflections.Coditas
+Canonical name : Reflections.Coditas
+Simple name : Coditas
+super class name : class java.lang.Object
+Class modifier : 
+Constructor name : Reflections.Coditas , modifier :  , parameters count : 1
+Constructor name : Reflections.Coditas , modifier :  , parameters count : 0
+Methods name : show ,paramenters : 1
+Methods name : show ,paramenters : 0
+Domain : JAVA ELTP PROGRAM
+Coditas Domain : Sailakshmi
+Exception in thread "main" java.lang.NoSuchFieldException: Domain
+	at java.lang.Class.getField(Class.java:1703)
+	at Reflections.ReflectionDemo1.main(ReflectionDemo1.java:70)
+
+Process finished with exit code 1
+
+
+*/
