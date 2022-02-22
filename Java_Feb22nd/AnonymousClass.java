@@ -20,7 +20,7 @@ abstract class Location<T>{
 public class AnonymousClass {
     public static void main(String[] args) {
 
-        Location<String> l=new Location<>() {
+        Location<String> l=new Location<String>() {
             @Override
             void show() {
                 System.out.println("Andhra Pradesh");
