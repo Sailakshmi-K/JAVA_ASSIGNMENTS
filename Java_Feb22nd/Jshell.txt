@@ -1,0 +1,63 @@
+PS C:\Users\Coditas\IdeaProjects\JavaProject> jshell
+|  Welcome to JShell -- Version 17.0.2
+|  For an introduction type: /help intro
+
+jshell> int a=10;
+a ==> 10
+
+jshell> int b=20
+b ==> 20
+
+jshell> int c=a+b;
+c ==> 30
+
+jshell> public int add(){
+   ...>     return(a+b);
+   ...> }
+|  created method add()
+
+jshell> System.out.println("Sum of a & b using add() : "+add());
+Sum of a & b using add() : 30
+
+jshell> class Student{
+   ...>     int id;
+   ...>     String name;
+   ...>     Student(int id,String name){
+   ...>         this.id=id;
+   ...>         this.name=name;
+   ...>     }
+   ...>     public void show(){
+   ...>         System.out.println("Student Details ==> ID : "+id+" NAME : "+name);
+   ...>     }
+   ...> }
+|  created class Student
+
+jshell> Student s=new Student(1,"Pavan");
+s ==> Student@2328c243
+
+jshell> s.show();
+Student Details ==> ID : 1 NAME : Pavan
+
+jshell> /list
+
+   1 : int a=10;
+   2 : int b=20;
+   3 : int c=a+b;
+   4 : public int add(){
+           return(a+b);
+       }
+   5 : System.out.println("Sum of a & b using add() : "+add());
+   6 : class Student{
+           int id;
+           String name;
+           Student(int id,String name){
+               this.id=id;
+               this.name=name;
+           }
+           public void show(){
+               System.out.println("Student Details ==> ID : "+id+" NAME : "+name);
+           }
+       }
+   7 : Student s=new Student(1,"Pavan");
+   8 : s.show();
+
