@@ -4,8 +4,8 @@ public class RunTimeVersion {
     public static void main(String[] args){
         Runtime.Version rtv = Runtime.version();
         String version = String.valueOf(rtv.version());
-        String minor=String.valueOf(rtv.minor());
-        String major=String.valueOf(rtv.major());
+        int major=rtv.major();
+        int minor=rtv.minor();
         System.out.println("Minor version : "+minor);
         System.out.println("Major version : "+major);
         System.out.println("The current Version is "+version);
