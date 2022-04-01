@@ -20,7 +20,7 @@ public class App
         CriteriaBuilder  cb=em.getCriteriaBuilder();
         CriteriaQuery<Object> cq= cb.createQuery();
         Root<Teacher> from=cq.from(Teacher.class);
-       /* Teacher t=new Teacher();
+        Teacher t=new Teacher();
         Teacher t1=new Teacher();
         Teacher t2=new Teacher();
         em.getTransaction().begin();
@@ -37,7 +37,7 @@ public class App
         em.persist(t);
         em.persist(t1);
         em.persist(t2);
-        em.getTransaction().commit();*/
+        em.getTransaction().commit();
 
 
         System.out.println("Select all records from teacher");
