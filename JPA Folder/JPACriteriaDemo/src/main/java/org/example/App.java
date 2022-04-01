@@ -2,7 +2,21 @@ package org.example;
 
 /**
  * Sailakshmi
+
+ ******31/03/2022********
  * JPA crieria
+ * CRUD operations
+  -->Save
+  -->fetch 2 columns
+  -->fetch records in descending order
+
+ ******81/04/2022***********
+  -->min()
+  -->max()
+  -->like
+  -->Between
+  -->update
+  -->Delete
  */
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -17,13 +31,17 @@ public class App
     {
         EntityManagerFactory emfactory= Persistence.createEntityManagerFactory("sai");
         EntityManager em=emfactory.createEntityManager();
+        EntityManager em1=emfactory.createEntityManager();
         CriteriaBuilder  cb=em.getCriteriaBuilder();
         CriteriaQuery<Object> cq= cb.createQuery();
         Root<Teacher> from=cq.from(Teacher.class);
+
         Teacher t=new Teacher();
         Teacher t1=new Teacher();
         Teacher t2=new Teacher();
+
         em.getTransaction().begin();
+
         t.setTname("Ishitha");
         t.setTsal(50000);
         t.setTdeg("Msc");
@@ -50,7 +68,7 @@ public class App
             System.out.println(o);
         }
 
-        System.out.println("*********only name and deg 2 columns *************");
+        System.out.println("*********Fetch 2 columns *************");
 
         for(Object o:resultlist){
             Teacher t6=(Teacher)o;
@@ -67,21 +85,16 @@ public class App
             System.out.println(t5.getTname()+"--->"+t5.getTsal());
         }
 
-        // Aggregate Function - min()
         System.out.println("********MIN()****************");
 
         Query q=em.createQuery("select MIN(e.tsal) from Teacher e");
         int res=(int) q.getSingleResult();
         System.out.println("Min salary :"+res);
 
-        // Aggregate Function - max()
-
         System.out.println("********MAX()****************");
         Query q1=em.createQuery("select MAX(e.tsal) from Teacher e");
         int res1=(int) q1.getSingleResult();
         System.out.println("MAX salary :"+res1);
-
-        // between
 
         System.out.println("********BETWEEN**************");
         Query q2=em.createQuery("select e from Teacher e where e.tsal between 20000 and 70000");
@@ -99,6 +112,22 @@ public class App
             System.out.println(o);
         }
 
+       System.out.println("*************UPDATE*****************");
+        Teacher teach=em.find(Teacher.class,22);
+        em.getTransaction().begin();
+        teach.setTsal(25000);
+        em.getTransaction().commit();
+        em.close();
+        System.out.println(teach+" Updated successfully..");
+
+        System.out.println("**************DELETE***************");
+        Teacher teach1=em.find(Teacher.class,21);
+        em.getTransaction().begin();
+        System.out.print(teach1);
+        em.remove(teach1);
+        em.getTransaction().commit();
+        em.close();
+        System.out.println("Successfully deleted...");
     }
 }
 
@@ -116,7 +145,7 @@ Hibernate:
 Teacher{tid=21, tname='Ishitha', tsal='50000', tdeg='Msc'}
 Teacher{tid=22, tname='Pavan', tsal='250000', tdeg='M.Tech'}
 Teacher{tid=23, tname='Sailakshmi', tsal='30000', tdeg='Bsc'}
-*********only name and deg 2 columns *************
+*********Fetch 2 columns *************
 Ishitha--->Msc
 Pavan--->M.Tech
 Sailakshmi--->Bsc
@@ -171,6 +200,43 @@ Hibernate:
     where
         teacher0_.Name like 'P%'
 Teacher{tid=22, tname='Pavan', tsal='250000', tdeg='M.Tech'}
+
+Before update
+mysql> select * from teacher_jpa;
++----+--------+------------+--------+
+| Id | Deg    | Name       | Salary |
++----+--------+------------+--------+
+| 21 | Msc    | Ishitha    |  50000 |
+| 22 | M.Tech | Pavan      | 250000 |
+| 23 | Bsc    | Sailakshmi |  30000 |
++----+--------+------------+--------+
+3 rows in set (0.00 sec)
+
+*************UPDATE*****************
+Hibernate:
+    update
+        Teacher_JPA
+    set
+        Deg=?,
+        Name=?,
+        Salary=?
+    where
+        Id=?
+Teacher{tid=22, tname='Pavan', tsal='25000', tdeg='M.Tech'} Updated successfully..
+
+After Update
+mysql> select * from teacher_jpa;
++----+--------+------------+--------+
+| Id | Deg    | Name       | Salary |
++----+--------+------------+--------+
+| 21 | Msc    | Ishitha    |  50000 |
+| 22 | M.Tech | Pavan      |  25000 |
+| 23 | Bsc    | Sailakshmi |  30000 |
++----+--------+------------+--------+
+3 rows in set (0.01 sec)
+
+**************DELETE***************
+Teacher{tid=21, tname='Ishitha', tsal='50000', tdeg='Msc'} Successfully deleted...
 
 Process finished with exit code 0
  */
