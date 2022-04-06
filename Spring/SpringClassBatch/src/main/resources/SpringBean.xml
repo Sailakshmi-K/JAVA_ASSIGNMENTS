@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="st1" class="org.example.Student">
+        <property name="sname" value="Sailakshmi"/>
+        <property name="qualification" value="B.Tech"/>
+        <property name="aggregate" value="85.56f"/>
+    </bean>
+
+    <bean id="st2" class="org.example.Student">
+        <property name="sname" value="Pavan"/>
+        <property name="qualification" value="M.Tech"/>
+        <property name="aggregate" value="78.92f"/>
+    </bean>
+    <bean id="class" class="org.example.Class">
+        <property name="batchcode" value="1"/>
+        <property name="coursename" value="Java"/>
+        <property name="student">
+            <list>
+                <ref bean="st1"/>
+                <ref bean="st2"/>
+            </list>
+
+        </property>
+    </bean>
+
+</beans>

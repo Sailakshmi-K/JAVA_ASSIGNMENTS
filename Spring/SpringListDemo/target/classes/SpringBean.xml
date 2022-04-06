@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="singer" class="org.example.Singer">
+        <property name="name" value="A.R Rahman"/>
+        <property name="dob" value="23-12-1987"/>
+        <property name="age" value="35"/>
+        <property name="songlist">
+        <list>
+            <value>Song1</value>
+            <value>Song2</value>
+            <value>Song3</value>
+        </list>
+        </property>
+    </bean>
+
+</beans>

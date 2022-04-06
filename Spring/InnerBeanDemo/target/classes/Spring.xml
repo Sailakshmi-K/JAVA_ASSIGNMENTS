@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean class="org.example.College" id="college">
+        <property name="college_name" value="RVR and JC College of Engineering"/>
+        <property name="subject" value="Electronics"/>
+        <property name="t">
+            <bean class="org.example.Teacher">
+                <property name="tname" value="Sathish"/>
+                <property name="qualification" value="M.Sc"/>
+                <property name="date_of_joining" value="23/12/2021"/>
+            </bean>
+        </property>
+    </bean>
+</beans>
