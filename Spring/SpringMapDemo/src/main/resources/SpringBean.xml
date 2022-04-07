@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Participants-->
+    <bean id="p1" class="org.example.Participants">
+        <property name="name" value="Sita"/>
+        <property name="address" value="Pune"/>
+    </bean>
+    <bean id="p2" class="org.example.Participants">
+        <property name="name" value="Gita"/>
+        <property name="address" value="Pune"/>
+    </bean>
+    <bean id="p3" class="org.example.Participants">
+        <property name="name" value="Latha"/>
+        <property name="address" value="Pune"/>
+    </bean>
+
+    <!--DID-->
+    <bean id="DID" class="org.example.DID">
+        <property name="seasonName" value="ARC"/>
+
+        <property name="brandPartners">
+            <list>
+                <value>XYZ</value>
+                <value>PQR</value>
+            </list>
+        </property>
+
+        <property name="participants">
+        <map>
+            <entry key-ref="p1" value="Remo"/>
+            <entry key-ref="p2" value="RJ"/>
+            <entry key-ref="p3" value="DJ"/>
+        </map>
+        </property>
+
+    </bean>
+
+</beans>
